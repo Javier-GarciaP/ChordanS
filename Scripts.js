@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Activamos el form
     registerContainer.classList.add('active');
+    loginContainer.classList.remove('active'); // Aseguramos que el login no esté activo al inicio
 
     // Animaciones de form
     registerContainer.addEventListener('click', function() {

@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchButton = document.getElementById('searchButton');
     const products = document.querySelectorAll('.product');
     var botonProductos = document.querySelector('a[href="#Productos"]');
-    var tituloProductos = document.querySelector('#Productos');
-    var botonExplorar= document.querySelector('a[href="#Productos"]');
 
     // Función para realizar la búsqueda
     function searchProducts() {
@@ -25,14 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // El código para ir directamente a productos
     botonProductos.addEventListener('click', function(event) {
         event.preventDefault();
-        tituloProductos.scrollIntoView({
-          behavior: 'smooth'
-        });
-    });
-    
-    // El código para ir directamente a productos
-    botonExplorar.addEventListener('click', function(event) {
-        event.preventDefault();
+        var tituloProductos = document.querySelector('#Productos');
         tituloProductos.scrollIntoView({
           behavior: 'smooth'
         });
@@ -49,12 +40,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Función para el menú en pantallas pequeñas
+    // Eliminar si no hay un menú con id="menu"
     function toggleMenu() {
         const menu = document.getElementById("menu");
-        menu.style.display === "block" ? menu.style.display = "none" : menu.style.display = "block";
+        if (menu) {
+            menu.style.display === "block" ? menu.style.display = "none" : menu.style.display = "block";
+        }
     }
 
-    // Agregué un evento de clic al botón del menú para alternar su visibilidad
+    // Agregar evento solo si existe el menú
     const menuButton = document.getElementById("menuButton");
-    menuButton.addEventListener("click", toggleMenu);
+    if (menuButton) {
+        menuButton.addEventListener("click", toggleMenu);
+    }
 });
